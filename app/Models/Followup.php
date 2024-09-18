@@ -7,5 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Followup extends Model
 {
+    public function Diary(){
+        return $this->belongsTo('App\Models\Diary');
+    }
     use HasFactory;
 }

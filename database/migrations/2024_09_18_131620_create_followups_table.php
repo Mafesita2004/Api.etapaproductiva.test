@@ -13,6 +13,13 @@ return new class extends Migration
     {
         Schema::create('followups', function (Blueprint $table) {
             $table->id();
+            $table->string('progress_evaluation');
+            $table->integer('activities_carriedout');
+            $table->date('start_date');
+            $table->date('end_date');
+            $table->string('practical_stage');
+            $table->integer('log');
+            $table->date('agreement report');
             $table->timestamps();
         });
     }

@@ -13,6 +13,12 @@ return new class extends Migration
     {
         Schema::create('diaries', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->string('email');
+            $table->integer('telephone');
+
+            $table->unsignedBigInteger('followup_id')->nullable();
+            $table->foreign('followup_id')->references('id')->on('followups')->onDelete('cascade');
             $table->timestamps();
         });
     }
