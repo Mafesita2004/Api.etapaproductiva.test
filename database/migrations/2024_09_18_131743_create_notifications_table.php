@@ -13,7 +13,10 @@ return new class extends Migration
     {
         Schema::create('notifications', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->date("fecha_envio");
+            $table->string("contenido");
+            
+
         });
     }
 
