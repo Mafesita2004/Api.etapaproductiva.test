@@ -12,54 +12,47 @@ class CompanyController extends Controller
      */
     public function index()
     {
-        //
+        $companies = Company::included()->filter()->sort()->get();
+        return response()->json($companies);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'nit' => 'required|max:255',
+            'name' => 'required|max:255',
+            'email' => 'required|max:255',
+            'telephone' => 'required|max:255',
+            'address' => 'required|max:255',
+        ]);
+
+        $company = Company::create($request->all());
+        return response()->json($company, 201);
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(company $company)
+    public function show($id)
     {
-        //
+        $company = Company::included()->findOrFail($id);
+        return response()->json($company);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(company $company)
+    public function update(Request $request, Company $company)
     {
-        //
+        $request->validate([
+            'nit' => 'required|max:255',
+            'name' => 'required|max:255',
+            'email' => 'required|max:255',
+            'telephone' => 'required|max:255',
+            'address' => 'required|max:255',
+        ]);
+
+        $company->update($request->all());
+        return response()->json($company);
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, company $company)
+    public function destroy(Company $company)
     {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(company $company)
-    {
-        //
+        $company->delete();
+        return response()->json(null, 204);
     }
 }
