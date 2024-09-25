@@ -71,4 +71,15 @@ class Role extends Model
             }
         }
     }
+
+    public function scopeGetOrPaginate(Builder $query) {
+        if (request('perPage')) {
+            $perPage = intval(request('perPage'));
+
+            if ($perPage) {
+                return $query->paginate($perPage);
+            }
+        }
+        return $query->get();
+    }
 }

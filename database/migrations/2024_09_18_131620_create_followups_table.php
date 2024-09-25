@@ -19,7 +19,7 @@ return new class extends Migration
             $table->date('end_date');
             $table->string('practical_stage');
             $table->integer('log');
-            $table->date('agreement report');
+            $table->date('agreement_report');
             $table->timestamps();
         });
     }
