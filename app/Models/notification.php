@@ -9,6 +9,10 @@ use Illuminate\Database\Eloquent\Builder;
 class notification extends Model
 {
     use HasFactory;
+    public function Notification(){
+        return $this->hasMany('App\Models\Notification');
+
+    }
 
 
     protected $fillable = [

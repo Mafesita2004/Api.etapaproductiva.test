@@ -14,6 +14,10 @@ class Role extends Model
     protected $allowFilter = ['id', 'role_type'];
 
     protected $allowSort = ['id', 'role_type'];
+    public function User_register(){
+        return $this->hasMany('App\Models\User_register');
+
+}
 
     public function scopeIncluded(Builder $query)
     {

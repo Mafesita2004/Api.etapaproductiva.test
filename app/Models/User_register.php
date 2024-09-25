@@ -19,11 +19,11 @@ class User_register extends Model
     }
      public function Company(){
             return $this->belongsTo('App\Models\Company');
-        
+
     }
     public function Academic_level(){
         return $this->belongsTo('App\Models\Academic_level');
-    
+
 }
 public function Knowledge_network(){
     return $this->belongsTo('App\Models\Knowledge_network');
@@ -32,6 +32,10 @@ public function Knowledge_network(){
 
 public function Contract_type(){
     return $this->belongsTo('App\Models\Contract_type');
+
+}
+public function Notification(){
+    return $this->belongsTo('App\Models\Notification');
 
 }
 

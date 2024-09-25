@@ -10,6 +10,10 @@ use Illuminate\Database\Eloquent\Builder;
 class Academic_level extends Model
 {
     use HasFactory;
+    public function User_register(){
+        return $this->hasMany('App\Models\User_register');
+
+}
     protected $fillable = ['name'];
 
     protected $allowIncluded = [];
