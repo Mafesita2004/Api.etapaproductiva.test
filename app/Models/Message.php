@@ -79,7 +79,7 @@ class Message extends Model
 
         if (substr($sortField, 0, 1) === '-') {
             $direction = 'desc';
-            $sortField = substr($sortField, 1); 
+            $sortField = substr($sortField, 1);
         }
 
         // Si el campo de ordenamiento está permitido, lo agregamos a la consulta
@@ -89,6 +89,17 @@ class Message extends Model
     }
 
 
+}
+
+public function scopeGetOrPaginate(Builder $query) {
+    if (request('perPage')) {
+        $perPage = intval(request('perPage'));
+
+        if ($perPage) {
+            return $query->paginate($perPage);
+        }
+    }
+    return $query->get();
 }
 
 

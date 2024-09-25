@@ -10,6 +10,10 @@ use Illuminate\Database\Eloquent\Builder;
 class Academic_level extends Model
 {
     use HasFactory;
+    public function User_register(){
+        return $this->hasMany('App\Models\User_register');
+
+}
     protected $fillable = ['name'];
 
     protected $allowIncluded = [];
@@ -73,6 +77,17 @@ class Academic_level extends Model
                 $query->orderBy($sortField, $direction);
             }
         }
+    }
+
+    public function scopeGetOrPaginate(Builder $query) {
+        if (request('perPage')) {
+            $perPage = intval(request('perPage'));
+
+            if ($perPage) {
+                return $query->paginate($perPage);
+            }
+        }
+        return $query->get();
     }
 
 }

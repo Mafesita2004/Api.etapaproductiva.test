@@ -7,59 +7,41 @@ use Illuminate\Http\Request;
 
 class ContractTypeController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
-        //
+    $contract_type=Contract_type::all();
+    return Response()->json($contract_type);
+}
+
+public function store(Request $request)
+    {
+
+        $request->validate([
+            'name' => 'required|max:255',          
+        ]);
+        $contract_type= Contract_type::create($request->all());
+
+        return response()->json('registrado correctamente');
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
-    }
+public function show($id) //si se pasa $id se utiliza la comentada
+{   $contract_type = Contract_type::findOrFail($id);
+    return response()->json($contract_type);
+}
+public function update(Request $request, Contract_type $contract_type)
+{
+    $request->validate([
+        'name' => 'required|max:255',
+    ]);
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(contract_type $contract_type)
-    {
-        //
-    }
+    $contract_type->update($request->all());
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(contract_type $contract_type)
+    return response()->json('actualizado correctamente');
+}
+public function destroy(Contract_type $contract_type)
     {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, contract_type $contract_type)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(contract_type $contract_type)
-    {
-        //
+        $contract_type->delete();
+        return response()->json('eliminado correctamente');
     }
 }

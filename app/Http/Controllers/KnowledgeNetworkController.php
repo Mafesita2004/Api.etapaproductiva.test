@@ -7,59 +7,41 @@ use Illuminate\Http\Request;
 
 class KnowledgeNetworkController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
-        //
+    $knowledge_network=Knowledge_network::all();
+    return Response()->json($knowledge_network);
+}
+
+public function store(Request $request)
+    {
+
+        $request->validate([
+            'name' => 'required|max:255',          
+        ]);
+        $knowledge_network= Knowledge_network::create($request->all());
+
+        return response()->json('registrado correctamente');
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
-    }
+public function show($id) //si se pasa $id se utiliza la comentada
+{   $knowledge_network = Knowledge_network::findOrFail($id);
+    return response()->json($knowledge_network);
+}
+public function update(Request $request, Knowledge_network $knowledge_network)
+{
+    $request->validate([
+        'name' => 'required|max:255',
+    ]);
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(knowledge_network $knowledge_network)
-    {
-        //
-    }
+    $knowledge_network->update($request->all());
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(knowledge_network $knowledge_network)
+    return response()->json('actualizado correctamente');
+}
+public function destroy(Knowledge_network $knowledge_network)
     {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, knowledge_network $knowledge_network)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(knowledge_network $knowledge_network)
-    {
-        //
+        $knowledge_network->delete();
+        return response()->json('eliminado correctamente');
     }
 }
