@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class contract_type extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'name' 
+    ];
+    protected $table='contract_types';
 }

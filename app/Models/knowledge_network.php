@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class knowledge_network extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        'name' 
+    ];
+    protected $table='knowledge_networks';
 }
