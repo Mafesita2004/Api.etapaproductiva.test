@@ -1,8 +1,13 @@
 <?php
 
+use App\Http\Controllers\AcademicLevelController;
 use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\DiaryController;
+use App\Http\Controllers\FollowupController;
+use App\Http\Controllers\MessageController;
+use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\ProgramController;
+use App\Http\Controllers\RoleController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -20,23 +25,55 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
-
+//DAYANA//
     Route::get('programs', [ProgramController::class,'index'])->name('api.programs.index');
     Route::post('programs', [ProgramController::class,'store'])->name('api.programs.store');
    Route::get('programs/{program}', [ProgramController::class,'show'])->name('api.programs.show');
-  Route::put('programs/{program}', [ProgramController::class,'update'])->name('api.programs.update'); 
+  Route::put('programs/{program}', [ProgramController::class,'update'])->name('api.programs.update');
    Route::delete('programs/{program}', [ProgramController::class,'destroy'])->name('api.programs.delete');
 
 
    Route::get('diaries', [DiaryController::class,'index'])->name('api.diaries.index');
    Route::post('diaries', [DiaryController::class,'store'])->name('api.diaries.store');
   Route::get('diaries/{diary}', [DiaryController::class,'show'])->name('api.diaries.show');
- Route::put('diaries/{diary}', [DiaryController::class,'update'])->name('api.diaries.update'); 
+ Route::put('diaries/{diary}', [DiaryController::class,'update'])->name('api.diaries.update');
   Route::delete('diaries/{diary}', [DiaryController::class,'destroy'])->name('api.diaries.delete');
 
 
   Route::get('companies', [CompanyController::class,'index'])->name('api.companies.index');
   Route::post('companies', [CompanyController::class,'store'])->name('api.companies.store');
  Route::get('companies/{company}', [CompanyController::class,'show'])->name('api.companies.show');
-Route::put('companies/{company}', [CompanyController::class,'update'])->name('api.companies.update'); 
+Route::put('companies/{company}', [CompanyController::class,'update'])->name('api.companies.update');
  Route::delete('companies/{company}', [CompanyController::class,'destroy'])->name('api.companies.delete');
+
+ //MAFE//
+ Route::get('messages', [MessageController::class,'index'])->name('api.messages.index');
+ Route::post('messages', [MessageController::class,'store'])->name('api.messages.store');
+Route::get('messages/{message}', [MessageController::class,'show'])->name('api.messages.show');
+Route::put('messages/{message}', [MessageController::class,'update'])->name('api.messages.update');
+Route::delete('messages/{message}', [MessageController::class,'destroy'])->name('api.messages.delete');
+
+Route::get('academic_levels', [AcademicLevelController::class,'index'])->name('api.academic_levels.index');
+Route::post('academic_levels', [AcademicLevelController::class,'store'])->name('api.academic_levels.store');
+Route::get('academic_levels/{academic_level}', [AcademicLevelController::class,'show'])->name('api.academic_levels.show');
+Route::put('academic_levels/{academic_level}', [AcademicLevelController::class,'update'])->name('api.academic_levels.update');
+Route::delete('academic_levels/{academic_level}', [AcademicLevelController::class,'destroy'])->name('api.academic_levels.delete');
+
+Route::get('roles', [RoleController::class,'index'])->name('api.roles.index');
+Route::post('roles', [RoleController::class,'store'])->name('api.roles.store');
+Route::get('roles/{role}', [RoleController::class,'show'])->name('api.roles.show');
+Route::put('roles/{role}', [RoleController::class,'update'])->name('api.roles.update');
+Route::delete('roles/{role}', [RoleController::class,'destroy'])->name('api.roles.delete');
+
+//PAULA//
+Route::get('followups', [FollowupController::class,'index'])->name('api.followups.index');
+Route::post('followups', [FollowupController::class,'store'])->name('api.followups.store');
+Route::get('followups/{followup}', [FollowupController::class,'show'])->name('api.followups.show');
+Route::put('followups/{followup}', [FollowupController::class,'update'])->name('api.followups.update');
+Route::delete('followups/{followup}', [FollowupController::class,'destroy'])->name('api.followups.delete');
+
+Route::get('notifications', [NotificationController::class,'index'])->name('api.notifications.index');
+Route::post('notifications', [NotificationController::class,'store'])->name('api.notifications.store');
+Route::get('notifications/{notification}', [NotificationController::class,'show'])->name('api.notifications.show');
+Route::put('notifications/{notification}', [NotificationController::class,'update'])->name('api.notifications.update');
+Route::delete('notifications/{notification}', [NotificationController::class,'destroy'])->name('api.notifications.delete');
