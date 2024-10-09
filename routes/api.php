@@ -9,7 +9,7 @@ use App\Http\Controllers\MessageController;
 use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\ProgramController;
 use App\Http\Controllers\RoleController;
-use App\Http\Controllers\UserRegisterController; 
+use App\Http\Controllers\UserRegisterController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 

@@ -2,12 +2,14 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class company extends Model
+class company extends Model // Cambié 'company' a 'Company'
 {
     use HasFactory;
+
     protected $fillable = ['nit', 'name', 'email', 'telephone', 'address'];
 
     protected $allowIncluded = [];

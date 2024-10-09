@@ -7,25 +7,12 @@ use Illuminate\Http\Request;
 
 class ContractController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\JsonResponse
-     */
     public function index()
     {
-        // Recupera todos los contratos
         $contracts = Contract::all();
-
         return response()->json($contracts);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\JsonResponse
-     */
     public function store(Request $request)
     {
         // Validación de los datos de entrada
@@ -37,36 +24,18 @@ class ContractController extends Controller
             'id_company' => 'required|exists:companies,id',
         ]);
 
-        // Creación del nuevo contrato
         $contract = Contract::create($request->all());
-
-        return response()->json($contract, 201); // Respuesta con código 201
+        return response()->json($contract, 201);
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\JsonResponse
-     */
     public function show($id)
     {
-        // Recupera un contrato específico
         $contract = Contract::findOrFail($id);
-
         return response()->json($contract);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Contract  $contract
-     * @return \Illuminate\Http\JsonResponse
-     */
     public function update(Request $request, Contract $contract)
     {
-        // Validación de los datos de entrada
         $request->validate([
             'codigo' => 'required|integer',
             'tipo' => 'required|string|max:255',
@@ -75,23 +44,13 @@ class ContractController extends Controller
             'id_company' => 'required|exists:companies,id',
         ]);
 
-        // Actualización del contrato
         $contract->update($request->all());
-
         return response()->json($contract);
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Contract  $contract
-     * @return \Illuminate\Http\JsonResponse
-     */
     public function destroy(Contract $contract)
     {
-        // Elimina el contrato
         $contract->delete();
-
-        return response()->json(null, 204); // Respuesta vacía con código 204
+        return response()->json(null, 204);
     }
 }

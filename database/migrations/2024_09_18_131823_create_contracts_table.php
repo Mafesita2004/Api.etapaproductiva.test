@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string("tipo");
             $table->date("fecha_inicio");
             $table->date("fecha_fin");
-            $table->foreignId('id_company')->references('id')->on('companies')->onDelete('cascade');
+            $table->foreignId('id_company')->constrained('companies')->onDelete('cascade'); // Asegúrate de que 'companies' es el nombre correcto
             $table->timestamps();
         });
     }
