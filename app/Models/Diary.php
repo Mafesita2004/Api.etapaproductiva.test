@@ -4,16 +4,17 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Builder;
 
 class Diary extends Model
 {
-   
+
     use HasFactory;
     protected $fillable = ['name', 'email', 'telephone'];
     protected $allowIncluded = ['Followup'];
     protected $allowFilter = ['id', 'name', 'email', 'telephone'];
     protected $allowSort = ['id', 'name', 'email', 'telephone'];
-    
+
     public function Followup(){
         return $this->hasMany('\App\Models\Followup');
     }
@@ -78,7 +79,7 @@ class Diary extends Model
 
         if (substr($sortField, 0, 1) === '-') {
             $direction = 'desc';
-            $sortField = substr($sortField, 1); 
+            $sortField = substr($sortField, 1);
         }
 
         // Si el campo de ordenamiento está permitido, lo agregamos a la consulta
