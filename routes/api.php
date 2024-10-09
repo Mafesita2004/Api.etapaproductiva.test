@@ -10,6 +10,12 @@ use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\ProgramController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserRegisterController;
+<<<<<<< HEAD
+=======
+use App\Http\Controllers\KnowledgeNetworkController;
+use App\Http\Controllers\ContractTypeController;
+use App\Models\knowledge_network;
+>>>>>>> 54d8d960bb9ed45d743b03b54dc7af5990ee9dff
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -97,3 +103,17 @@ Route::post('contracts', [ContractController::class,'store'])->name('api.contrac
 Route::get('contracts/{contract}', [ContractController::class,'show'])->name('api.contracts.show');
 Route::put('contracts/{contract}', [ContractController::class,'update'])->name('api.contracts.update');
 Route::delete('contracts/{contract}', [ContractController::class,'destroy'])->name('api.contracts.delete');
+
+// Rutas para knowledge_networks
+Route::get('knowledge_networks', [KnowledgeNetworkController::class,'index'])->name('api.knowledge_networks.index');
+Route::post('knowledge_networks', [KnowledgeNetworkController::class,'store'])->name('api.knowledge_networks.store');
+Route::get('knowledge_networks/{knowledge_network}', [KnowledgeNetworkController::class,'show'])->name('api.knowledge_networks.show');
+Route::put('knowledge_networks/{knowledge_network}', [KnowledgeNetworkController::class,'update'])->name('api.knowledge_networks.update');
+Route::delete('knowledge_networks/{knowledge_network}', [KnowledgeNetworkController::class,'destroy'])->name('api.knowledge_networks.delete');
+
+// Rutas para contract_types
+Route::get('contract_types', [ContractTypeController::class,'index'])->name('api.contract_types.index');
+Route::post('contract_types', [ContractTypeController::class,'store'])->name('api.contract_types.store');
+Route::get('contract_types/{contract_type}', [ContractTypeController::class,'show'])->name('api.contract_types.show');
+Route::put('contract_types/{contract_type}', [ContractTypeController::class,'update'])->name('api.contract_types.update');
+Route::delete('contract_types/{contract_type}', [ContractTypeController::class,'destroy'])->name('api.contract_types.delete');
