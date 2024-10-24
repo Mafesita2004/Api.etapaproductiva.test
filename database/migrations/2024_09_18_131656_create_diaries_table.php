@@ -16,9 +16,8 @@ return new class extends Migration
             $table->string('name');
             $table->string('email');
             $table->integer('telephone');
-
-            $table->unsignedBigInteger('followup_id')->nullable();
-            $table->foreign('followup_id')->references('id')->on('followups')->onDelete('cascade');
+            $table->unsignedBigInteger('followup_id')->nullable(); // Asegúrate de que el nombre coincida
+            $table->foreign('followup_id')->references('id')->on('followups')->onDelete('cascade'); // Relación con la tabla followups
             $table->timestamps();
         });
     }

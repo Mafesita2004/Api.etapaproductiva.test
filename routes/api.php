@@ -10,12 +10,9 @@ use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\ProgramController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserRegisterController;
-<<<<<<< HEAD
-=======
 use App\Http\Controllers\KnowledgeNetworkController;
 use App\Http\Controllers\ContractTypeController;
 use App\Models\knowledge_network;
->>>>>>> 54d8d960bb9ed45d743b03b54dc7af5990ee9dff
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -42,11 +39,11 @@ Route::put('programs/{program}', [ProgramController::class,'update'])->name('api
 Route::delete('programs/{program}', [ProgramController::class,'destroy'])->name('api.programs.delete');
 
 // Rutas para Diaries
-Route::get('diaries', [DiaryController::class,'index'])->name('api.diaries.index');
-Route::post('diaries', [DiaryController::class,'store'])->name('api.diaries.store');
-Route::get('diaries/{diary}', [DiaryController::class,'show'])->name('api.diaries.show');
-Route::put('diaries/{diary}', [DiaryController::class,'update'])->name('api.diaries.update');
-Route::delete('diaries/{diary}', [DiaryController::class,'destroy'])->name('api.diaries.delete');
+Route::get('diaries', [DiaryController::class, 'index'])->name('api.diaries.index');
+Route::post('diaries', [DiaryController::class, 'store'])->name('api.diaries.store');
+Route::get('diaries/{diary}', [DiaryController::class, 'show'])->name('api.diaries.show');
+Route::put('diaries/{diary}', [DiaryController::class, 'update'])->name('api.diaries.update');
+Route::delete('diaries/{diary}', [DiaryController::class, 'destroy'])->name('api.diaries.delete');
 
 // Rutas para Companies
 Route::get('companies', [CompanyController::class,'index'])->name('api.companies.index');
@@ -93,7 +90,7 @@ Route::delete('notifications/{notification}', [NotificationController::class,'de
 // Rutas para User Register
 Route::get('user_registers', [UserRegisterController::class,'index'])->name('api.user_registers.index');
 Route::post('user_registers', [UserRegisterController::class,'store'])->name('api.user_registers.store');
-Route::get('user_registers/{user_register}', [UserRegisterController::class,'show'])->name('api.user_registers.show');
+Route::get('user_registers/{usegit r_register}', [UserRegisterController::class,'show'])->name('api.user_registers.show');
 Route::put('user_registers/{user_register}', [UserRegisterController::class,'update'])->name('api.user_registers.update');
 Route::delete('user_registers/{user_register}', [UserRegisterController::class,'destroy'])->name('api.user_registers.delete');
 
