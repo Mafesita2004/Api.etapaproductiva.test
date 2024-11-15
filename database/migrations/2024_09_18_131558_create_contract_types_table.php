@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\DB;
 
 return new class extends Migration
 {
@@ -16,6 +17,16 @@ return new class extends Migration
             $table->string('name');
             $table->timestamps();
         });
+
+        // Insertar programas directamente en la migración
+        DB::table('programs')->insert([
+            ['name' => 'Contrato De Aprendizaje'],
+            ['name' => 'Vinculo Laboral'],
+            ['name' => 'Pasantia'],
+            ['name' => 'Unidad Productiva'],
+            ['name' => 'Proyecto Productivo'],
+            ['name' => 'Pasantia'],
+        ]);
     }
 
     /**
