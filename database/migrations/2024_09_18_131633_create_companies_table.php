@@ -16,6 +16,7 @@ return new class extends Migration
             $table->integer('nit');
             $table->string('name');
             $table->string('email');
+            $table->string('social_reason');
             $table->integer('telephone');
             $table->string('address');
             $table->timestamps();

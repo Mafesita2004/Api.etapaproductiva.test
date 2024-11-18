@@ -13,6 +13,13 @@ class Trainer extends Model
     public function User_Register(){
         return $this->belongsTo(User_register::class, 'id_user_resgisters');
     }
+    public function Apprentice(){
+        return $this->hasMany('App\Models\Apprentice');
+    }
+    public function Message(){
+        return $this->hasMany('App\Models\Message');
+    }
+
     protected $fillable = ['number_of_monitoring_hours', 'month', 'number_of_trainees_assigned'];
 
     protected $allowIncluded = [];

@@ -8,6 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Contract extends Model
 {
     use HasFactory;
+    public function Apprentice(){
+        return $this->hasOne('App\Models\Apprentice');
+    }
 
     // Define los campos que se pueden asignar masivamente
     protected $fillable = [

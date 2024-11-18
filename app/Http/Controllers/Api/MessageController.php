@@ -33,7 +33,8 @@ class MessageController extends Controller
             'mensaje' => 'required|max:255',
             'descripcion' => 'required|max:255',
             'id_role' => 'required|exists:roles,id',
-            'id_user_register' => 'required|exists:user_registers,id',
+            'id_trainer' => 'required|exists:trainer,id',
+            'id_apprentice' => 'required|exists:apprentice,id',
         ]);
 
         // Creación del nuevo mensaje
@@ -54,7 +55,7 @@ class MessageController extends Controller
         $message = Message::included()->findOrFail($id);
 
         return response()->json($message);
-        
+
     }
 
     /**
