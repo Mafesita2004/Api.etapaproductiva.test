@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('apprentices', function (Blueprint $table) {
             $table->id();
+            $table->string('academic_level');
             $table->string('program');
             $table->string('ficha');
             $table->foreignId('id_contract')->references('id')->on('contracts')->onDelete('cascade');
