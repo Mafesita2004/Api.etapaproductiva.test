@@ -18,19 +18,15 @@ class User_register extends Model
         'name',
         'last_name',
         'email',
-        'password',
-        'phone',
-        'address',
+        'SENA_account',
         'department',
         'municipality',
+        'mode',
         'id_role',
         'id_contract',
         'id_followup',
         'id_company',
-        'id_program',
-        'id_academic_level',
-        'id_knowledge_network',
-        'id_contract_type'
+        'id_trainer',
     ];
 
     // Relación con la tabla roles

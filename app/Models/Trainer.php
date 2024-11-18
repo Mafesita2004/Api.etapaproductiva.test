@@ -20,11 +20,11 @@ class Trainer extends Model
         return $this->hasMany('App\Models\Message');
     }
 
-    protected $fillable = ['number_of_monitoring_hours', 'month', 'number_of_trainees_assigned'];
+    protected $fillable = ['number_of_monitoring_hours', 'month', 'number_of_trainees_assigned','Network_Knowledge'];
 
     protected $allowIncluded = [];
-    protected $allowFilter = ['id', 'number_of_monitoring_hours', 'month', 'number_of_trainees_assigned'];
-    protected $allowSort = ['id', 'number_of_monitoring_hours', 'month', 'number_of_trainees_assigned'];
+    protected $allowFilter = ['id', 'number_of_monitoring_hours', 'month', 'number_of_trainees_assigned','Network_Knowledge'];
+    protected $allowSort = ['id', 'number_of_monitoring_hours', 'month', 'number_of_trainees_assigned','Network_Knowledge'];
 
     public function scopeIncluded(Builder $query)
     {

@@ -16,7 +16,8 @@ return new class extends Migration
             $table->string('number_of_monitoring_hours');
             $table->string('month');
             $table->string('number_of_trainees_assigned');
-            $table->string('id_user_resgisters');
+            $table->string('number_of_trainees_assigned');
+            $table->string('Network_Knowledge');
 
             $table->timestamps();
         });

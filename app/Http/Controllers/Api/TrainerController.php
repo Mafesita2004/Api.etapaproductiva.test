@@ -19,6 +19,7 @@ class TrainerController extends Controller
             'number_of_monitoring_hours' => 'required|max:255',
             'month' => 'required|date',
             'number_of_trainees_assigned' => 'required|max:255',
+            'Network_Knowledge' => 'required|max:255',
 
         ]);
 
