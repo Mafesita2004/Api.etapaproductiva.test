@@ -57,6 +57,10 @@ class User_register extends Model
         return $this->belongsTo(Company::class, 'id_company');
     }
 
+    public function Trainer(){
+        return $this->hasMany('App\Models\Trainer');
+    }
+
     // Encriptar la contraseña automáticamente al crear o actualizar
     public function setPasswordAttribute($value)
     {

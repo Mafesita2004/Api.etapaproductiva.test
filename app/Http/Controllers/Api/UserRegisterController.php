@@ -39,14 +39,14 @@ class UserRegisterController extends Controller
             'address' => 'required|string|max:255',
             'department' => 'required|string|max:255',
             'municipality' => 'required|string|max:255',
+            'academic_level' => 'required|string|max:255',
+            'program' => 'required|string|max:255',
+            'knowledge_network' => 'required|string|max:255',
+            'contract_type' => 'required|string|max:255',
             'id_role' => 'required|exists:roles,id',
             'id_contract' => 'required|exists:contracts,id',
             'id_followup' => 'required|exists:followups,id',
             'id_company' => 'required|exists:companies,id',
-            'id_program' => 'required|exists:programs,id',
-            'id_academic_level' => 'required|exists:academic_levels,id',
-            'id_knowledge_network' => 'required|exists:knowledge_networks,id',
-            'id_contract_type' => 'required|exists:contract_types,id',
         ]);
 
         // Creación del nuevo registro de usuario
@@ -89,14 +89,14 @@ class UserRegisterController extends Controller
             'address' => 'required|string|max:255',
             'department' => 'required|string|max:255',
             'municipality' => 'required|string|max:255',
+            'academic_level' => 'required|string|max:255',
+            'program' => 'required|string|max:255',
+            'knowledge_network' => 'required|string|max:255',
+            'contract_type' => 'required|string|max:255',
             'id_role' => 'required|exists:roles,id',
             'id_contract' => 'required|exists:contracts,id',
             'id_followup' => 'required|exists:followups,id',
             'id_company' => 'required|exists:companies,id',
-            'id_program' => 'required|exists:programs,id',
-            'id_academic_level' => 'required|exists:academic_levels,id',
-            'id_knowledge_network' => 'required|exists:knowledge_networks,id',
-            'id_contract_type' => 'required|exists:contract_types,id',
         ]);
 
         // Actualización del registro de usuario
