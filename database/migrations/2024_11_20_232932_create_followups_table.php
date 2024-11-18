@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('type_of_agreement');
             $table->date('date');
             $table->string('observation');
-            $table->foreign('id_user_register')->references('id')->on('user_registers')->onDelete('cascade');
+            $table->foreignId('user_register_id')->references('id')->on('user_registers')->onDelete('cascade');
 
             $table->timestamps();
         });

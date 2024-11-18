@@ -13,10 +13,9 @@ return new class extends Migration
     {
         Schema::create('trainers', function (Blueprint $table) {
             $table->id();
-            $table->string('number_of_monitoring_hours');
-            $table->string('month');
-            $table->string('number_of_trainees_assigned');
-            $table->string('number_of_trainees_assigned');
+            $table->integer('number_of_monitoring_hours');
+            $table->date('month');
+            $table->integer('number_of_trainees_assigned');
             $table->string('Network_Knowledge');
 
             $table->timestamps();
