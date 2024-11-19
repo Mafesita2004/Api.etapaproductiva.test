@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 
 class FollowupController extends Controller
 {
+    
+
     public function index()
     {
         $followups = Followup::included()->filter()->sort()->get();
