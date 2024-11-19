@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AcademicLevelController;
+use App\Http\Controllers\ApprenticeController;
 use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\ContractController;
 use App\Http\Controllers\DiaryController;
@@ -26,6 +27,10 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "api" middleware group. Make something great!
 |
 */
+
+Route::get('/', function(){
+    return view('welcome');
+});
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
@@ -108,9 +113,9 @@ Route::get('knowledge_networks/{knowledge_network}', [KnowledgeNetworkController
 Route::put('knowledge_networks/{knowledge_network}', [KnowledgeNetworkController::class,'update'])->name('api.knowledge_networks.update');
 Route::delete('knowledge_networks/{knowledge_network}', [KnowledgeNetworkController::class,'destroy'])->name('api.knowledge_networks.delete');
 
-// Rutas para contract_types
-Route::get('contract_types', [ContractTypeController::class,'index'])->name('api.contract_types.index');
-Route::post('contract_types', [ContractTypeController::class,'store'])->name('api.contract_types.store');
-Route::get('contract_types/{contract_type}', [ContractTypeController::class,'show'])->name('api.contract_types.show');
-Route::put('contract_types/{contract_type}', [ContractTypeController::class,'update'])->name('api.contract_types.update');
-Route::delete('contract_types/{contract_type}', [ContractTypeController::class,'destroy'])->name('api.contract_types.delete');
+// Rutas para Aprendiz
+Route::get('apprentice', [ApprenticeController::class,'index'])->name('api.apprentice.index');
+Route::post('apprentice', [ApprenticeController::class,'store'])->name('api.apprentice.store');
+Route::get('apprentice/{apprentice}', [ApprenticeController::class,'show'])->name('api.apprentice.show');
+Route::put('apprentice/{apprentice}', [ApprenticeController::class,'update'])->name('api.apprentice.update');
+Route::delete('apprentice/{apprentice}', [ApprenticeController::class,'destroy'])->name('api.apprentice.delete');

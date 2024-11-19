@@ -4,23 +4,27 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-
 use Illuminate\Database\Eloquent\Builder;
 
-class Academic_level extends Model
+class Trainer extends Model
 {
     use HasFactory;
-    public function User_register(){
-        return $this->hasMany('App\Models\User_register');
 
-}
-    protected $fillable = ['name'];
+    public function User_Register(){
+        return $this->belongsTo(User_register::class, 'id_user_resgisters');
+    }
+    public function Apprentice(){
+        return $this->hasMany('App\Models\Apprentice');
+    }
+    public function Message(){
+        return $this->hasMany('App\Models\Message');
+    }
+
+    protected $fillable = ['number_of_monitoring_hours', 'month', 'number_of_trainees_assigned','Network_Knowledge'];
 
     protected $allowIncluded = [];
-
-    protected $allowFilter = ['id', 'name'];
-
-    protected $allowSort = ['id', 'name'];
+    protected $allowFilter = ['id', 'number_of_monitoring_hours', 'month', 'number_of_trainees_assigned','Network_Knowledge'];
+    protected $allowSort = ['id', 'number_of_monitoring_hours', 'month', 'number_of_trainees_assigned','Network_Knowledge'];
 
     public function scopeIncluded(Builder $query)
     {
@@ -49,9 +53,9 @@ class Academic_level extends Model
         $filters = request('filter');
         $allowFilter = collect($this->allowFilter);
 
-        foreach ($filters as $field => $value) {
-            if ($allowFilter->contains($field)) {
-                $query->where($field, $value);
+        foreach ($filters as $filter => $value) {
+            if ($allowFilter->contains($filter)) {
+                $query->where($filter, 'LIKE', '%' . $value . '%');
             }
         }
     }
@@ -79,7 +83,8 @@ class Academic_level extends Model
         }
     }
 
-    public function scopeGetOrPaginate(Builder $query) {
+    public function scopeGetOrPaginate(Builder $query)
+    {
         if (request('perPage')) {
             $perPage = intval(request('perPage'));
 
@@ -89,5 +94,4 @@ class Academic_level extends Model
         }
         return $query->get();
     }
-
 }

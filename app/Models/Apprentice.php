@@ -4,20 +4,28 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-
 use Illuminate\Database\Eloquent\Builder;
 
-class contract_type extends Model
+class Apprentice extends Model
 {
     use HasFactory;
+    public function Contract(){
+        return $this->belongsTo(Contract::class, 'id_contract');
+    }
+    public function Trainer(){
+        return $this->belongsTo(Trainer::class, 'id_trainer');
+    }
+    public function Message(){
+        return $this->hasMany('App\Models\Message');
+    }
 
-    protected $fillable = ['name'];
+    protected $fillable = ['id','program', 'ficha'];
 
     protected $allowIncluded = [];
 
-    protected $allowFilter = ['id', 'name'];
+    protected $allowFilter = ['id','program', 'ficha'];
 
-    protected $allowSort = ['id', 'name'];
+    protected $allowSort = ['id','program', 'ficha'];
 
     public function scopeIncluded(Builder $query)
     {
@@ -75,15 +83,6 @@ class contract_type extends Model
             }
         }
     }
-
-    public function scopeGetOrPaginate(Builder $query) {
-        if (request('perPage')) {
-            $perPage = intval(request('perPage'));
-
-            if ($perPage) {
-                return $query->paginate($perPage);
-            }
-        }
-        return $query->get();
-    }
 }
+
+

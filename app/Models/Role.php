@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Role extends Model
 {
+
     protected $fillable = ['role_type'];
 
     protected $allowIncluded = [];
@@ -14,6 +15,7 @@ class Role extends Model
     protected $allowFilter = ['id', 'role_type'];
 
     protected $allowSort = ['id', 'role_type'];
+    
     public function User_register(){
         return $this->hasMany('App\Models\User_register');
 

@@ -41,6 +41,7 @@ class ContractController extends Controller
             'fecha_inicio' => 'required|date',
             'fecha_fin' => 'required|date',
             'id_company' => 'required|exists:companies,id',
+            
         ]);
 
         // Creación del nuevo contrato
