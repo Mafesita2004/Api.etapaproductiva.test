@@ -18,12 +18,7 @@ return new class extends Migration
             $table->timestamps();
         });
 
-        // Insertar programas directamente en la migración
-        DB::table('programs')->insert([
-            ['name' => 'TECNOLOGO'],
-            ['name' => 'TECNICO'],
-            ['name' => 'OPERARIO'],
-        ]);
+       
     }
 
     /**
