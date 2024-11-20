@@ -36,12 +36,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-// Rutas para Programas
-Route::get('programs', [ProgramController::class,'index'])->name('api.programs.index');
-Route::post('programs', [ProgramController::class,'store'])->name('api.programs.store');
-Route::get('programs/{program}', [ProgramController::class,'show'])->name('api.programs.show');
-Route::put('programs/{program}', [ProgramController::class,'update'])->name('api.programs.update');
-Route::delete('programs/{program}', [ProgramController::class,'destroy'])->name('api.programs.delete');
 
 // Rutas para Diaries
 Route::get('diaries', [DiaryController::class, 'index'])->name('api.diaries.index');
