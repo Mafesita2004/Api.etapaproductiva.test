@@ -19,7 +19,7 @@ return [
 
     'allowed_methods' => ['*'],
 
-    'allowed_origins' => ['*'],
+    'allowed_origins' => [env('URL_SERVER_API=https://apietapaproductivatest-production-af30.up.railway.app/')],
 
     'allowed_origins_patterns' => [],
 

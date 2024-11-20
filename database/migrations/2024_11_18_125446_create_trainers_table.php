@@ -11,15 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('followups', function (Blueprint $table) {
+        Schema::create('trainers', function (Blueprint $table) {
             $table->id();
-            $table->string('progress_evaluation');
-            $table->integer('activities_carriedout');
-            $table->date('start_date');
-            $table->date('end_date');
-            $table->string('practical_stage');
-            $table->integer('log');
-            $table->date('agreement_report');
+            $table->integer('number_of_monitoring_hours');
+            $table->date('month');
+            $table->integer('number_of_trainees_assigned');
+            $table->string('Network_Knowledge');
+
             $table->timestamps();
         });
     }
@@ -29,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('followups');
+        Schema::dropIfExists('trainers');
     }
 };
