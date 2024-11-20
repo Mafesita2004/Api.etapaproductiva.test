@@ -18,13 +18,12 @@ return new class extends Migration
             $table->timestamps();
         });
 
-        // Insertar roles directamente en la migración
+        // Inserta registros iniciales en la tabla 'roles'
         DB::table('roles')->insert([
             ['role_type' => 'SuperAdmin'],
             ['role_type' => 'Administrador'],
             ['role_type' => 'Instructor'],
-            ['role_type' => 'Aprendiz'],
-
+            ['role_type' => 'Aprendiz']
         ]);
     }
 
