@@ -10,6 +10,15 @@ class LogController extends Controller
     /**
      * Display a listing of the resource.
      */
+    public function guardarBitacoras(Request $request)
+{
+    $bitacoras = $request->input('bitacoras'); // Obtener las bitácoras seleccionadas
+
+    // Guardar en la base de datos o realizar otra acción
+    // ...
+
+    return response()->json(['success' => true]);
+}
     public function index()
     {
         //
@@ -23,6 +32,7 @@ class LogController extends Controller
         //
     }
 
+    
     /**
      * Store a newly created resource in storage.
      */

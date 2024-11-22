@@ -35,27 +35,7 @@ class User_register extends Model
         return $this->belongsTo(Role::class, 'id_role');
     }
 
-    // Relación con la tabla contracts
-    public function contract()
-    {
-        return $this->belongsTo(Contract::class, 'id_contract');
-    }
-
-    // Relación con la tabla followups
-    public function followup()
-    {
-        return $this->belongsTo(Followup::class, 'id_followup');
-    }
-
-    // Relación con la tabla companies
-    public function company()
-    {
-        return $this->belongsTo(Company::class, 'id_company');
-    }
-
-    public function Trainer(){
-        return $this->hasMany('App\Models\Trainer');
-    }
+   
 
     // Encriptar la contraseña automáticamente al crear o actualizar
     public function setPasswordAttribute($value)
