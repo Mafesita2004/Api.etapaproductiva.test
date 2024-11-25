@@ -26,9 +26,13 @@ return new class extends Migration
             $table->string('academic_level');
             $table->string('knowledge_network');
             $table->foreignId('id_role')->references('id')->on('roles')->onDelete('cascade');
+<<<<<<< HEAD:database/migrations/2024_11_20_232927_create_user_registers_table.php
             $table->foreignId('id_contract')->references('id')->on('contracts')->onDelete('cascade');
             $table->foreignId('id_followup')->references('id')->on('followups')->onDelete('cascade');
             $table->foreignId('id_company')->references('id')->on('companies')->onDelete('cascade');
+=======
+
+>>>>>>> 927b05e3335329f2cb371d9bf27d3e3813f84e20:database/migrations/2014_10_11_232927_create_user_registers_table.php
             $table->timestamps();
         });
     }

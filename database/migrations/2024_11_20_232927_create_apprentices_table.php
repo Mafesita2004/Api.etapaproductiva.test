@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('academic_level');
             $table->string('program');
             $table->string('ficha');
+            $table->foreignId('id_company')->references('id')->on('companies')->onDelete('cascade');
             $table->foreignId('id_contract')->references('id')->on('contracts')->onDelete('cascade');
             $table->foreignId('id_trainer')->references('id')->on('trainers')->onDelete('cascade');
             $table->timestamps();

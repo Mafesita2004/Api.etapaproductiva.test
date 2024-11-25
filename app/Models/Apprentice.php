@@ -15,6 +15,20 @@ class Apprentice extends Model
     public function Trainer(){
         return $this->belongsTo(Trainer::class, 'id_trainer');
     }
+     // Relación con la tabla contracts
+
+     // Relación con la tabla followups
+     public function followup()
+     {
+         return $this->belongsTo(Followup::class, 'id_followup');
+     }
+
+     // Relación con la tabla companies
+     public function company()
+     {
+         return $this->belongsTo(Company::class, 'id_company');
+     }
+
     public function Message(){
         return $this->hasMany('App\Models\Message');
     }

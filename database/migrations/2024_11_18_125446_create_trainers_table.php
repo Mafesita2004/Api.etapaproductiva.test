@@ -17,6 +17,7 @@ return new class extends Migration
             $table->date('month');
             $table->integer('number_of_trainees_assigned');
             $table->string('Network_Knowledge');
+            $table->foreignId('id_user_register')->references('id')->on('user_registers')->onDelete('cascade');
 
             $table->timestamps();
         });
