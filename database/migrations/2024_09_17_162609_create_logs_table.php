@@ -3,6 +3,8 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\DB;
+
 
 return new class extends Migration
 {
@@ -11,11 +13,16 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('knowledge_networks', function (Blueprint $table) {
+        Schema::create('logs', function (Blueprint $table) {
             $table->id();
-            $table->string("name");
+            $table->integer('number_log');
+            $table->string('description');
+            $table->date('date');
+            $table->string('observation');
             $table->timestamps();
         });
+
+
     }
 
     /**
@@ -23,6 +30,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('knowledge_networks');
+        Schema::dropIfExists('logs');
     }
 };

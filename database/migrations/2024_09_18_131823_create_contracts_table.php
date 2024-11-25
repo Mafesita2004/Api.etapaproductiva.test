@@ -13,10 +13,10 @@ return new class extends Migration
     {
         Schema::create('contracts', function (Blueprint $table) {
             $table->id();
-            $table->integer("codigo");
-            $table->string("tipo");
-            $table->date("fecha_inicio");
-            $table->date("fecha_fin");
+            $table->integer("code");
+            $table->string("type");
+            $table->date("date_start");
+            $table->date("date_end");
             $table->foreignId('id_company')->constrained('companies')->onDelete('cascade'); // Asegúrate de que 'companies' es el nombre correcto
             $table->timestamps();
         });

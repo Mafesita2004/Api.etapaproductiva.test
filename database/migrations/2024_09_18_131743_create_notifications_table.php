@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('notifications', function (Blueprint $table) {
             $table->id();
-            $table->date("fecha_envio");
-            $table->string("contenido");
-            
+            $table->date("shipping_date");
+            $table->string("content");
+
 
         });
     }

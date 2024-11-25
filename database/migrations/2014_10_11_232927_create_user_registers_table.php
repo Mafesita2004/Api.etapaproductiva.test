@@ -17,7 +17,6 @@ return new class extends Migration
             $table->string('name');
             $table->string('last_name');
             $table->string('email');
-            $table->string('SENA_account');
             $table->string('department');
             $table->string('municipality');
             $table->string('mode')->nullable();

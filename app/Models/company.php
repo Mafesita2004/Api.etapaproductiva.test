@@ -9,6 +9,10 @@ use Illuminate\Database\Eloquent\Model;
 class company extends Model // Cambié 'company' a 'Company'
 {
     use HasFactory;
+    public function Contract(){
+        return $this->belongsTo('App\Models\Contract');
+    }
+
 
     protected $fillable = ['nit', 'name', 'email', 'telephone', 'address'];
 

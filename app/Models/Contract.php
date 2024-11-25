@@ -12,6 +12,9 @@ class Contract extends Model
         return $this->hasOne('App\Models\Apprentice');
     }
 
+    public function Company(){
+        return $this->hasMany('App\Models\Company');
+    }
     // Define los campos que se pueden asignar masivamente
     protected $fillable = [
         'codigo',
@@ -22,8 +25,5 @@ class Contract extends Model
     ];
 
     // Relación con la tabla companies
-    public function company()
-    {
-        return $this->belongsTo(Company::class, 'id_company');
-    }
+
 }
