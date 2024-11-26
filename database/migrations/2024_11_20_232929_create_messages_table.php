@@ -15,7 +15,9 @@ return new class extends Migration
             $table->id();
             $table->string("mensaje");
             $table->string("descripcion");
-            $table->foreignId('id_user_register')->references('id')->on('user_registers')->onDelete('cascade');
+            $table->foreignId('id_role')->references('id')->on('roles')->onDelete('cascade');
+            $table->foreignId('id_trainer')->references('id')->on('trainers')->onDelete('cascade');
+            $table->foreignId('id_apprentice')->references('id')->on('apprentices')->onDelete('cascade');
             $table->timestamps();
         });
     }

@@ -11,13 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('contracts', function (Blueprint $table) {
+        Schema::create('visits', function (Blueprint $table) {
             $table->id();
-            $table->integer("codigo");
-            $table->string("tipo");
-            $table->date("fecha_inicio");
-            $table->date("fecha_fin");
-            $table->foreignId('id_company')->constrained('companies')->onDelete('cascade'); // Asegúrate de que 'companies' es el nombre correcto
+            $table->string('type_of_agreement');
+            $table->date('date');
+            $table->string('observation');
+            $table->foreignId('user_register_id')->references('id')->on('user_registers')->onDelete('cascade');
+
             $table->timestamps();
         });
     }
@@ -27,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('contracts');
+        Schema::dropIfExists('visits');
     }
 };

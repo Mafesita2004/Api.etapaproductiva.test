@@ -34,9 +34,8 @@ class User_register extends Model
     {
         return $this->belongsTo(Role::class, 'id_role');
     }
-    
 
-
+   
 
     // Encriptar la contraseña automáticamente al crear o actualizar
     public function setPasswordAttribute($value)

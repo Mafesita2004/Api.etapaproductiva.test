@@ -17,12 +17,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('last_name');
             $table->string('email');
-<<<<<<< HEAD
-=======
-            $table->string('password');
-            $table->integer('phone');
-            $table->string('address');
->>>>>>> 3c4ae88e4f754dc1739e83b1dc1532ad426e6856
+            $table->string('SENA_account');
             $table->string('department');
             $table->string('municipality');
             $table->string('program');
