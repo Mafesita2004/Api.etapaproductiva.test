@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api;
 
 use App\Models\Message; // Asegúrate de importar el modelo correcto
 use Illuminate\Http\Request;
