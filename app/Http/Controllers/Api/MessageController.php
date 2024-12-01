@@ -22,7 +22,7 @@ class MessageController extends Controller
         if ($request->query('included') === 'UserRegister') {
             $messages->with('userRegister'); // Carga la relación con la compañía
         }
-
+  
         return response()->json($messages->get());
     }
 
