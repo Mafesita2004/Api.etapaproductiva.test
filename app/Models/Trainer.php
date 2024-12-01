@@ -16,15 +16,18 @@ class Trainer extends Model
     public function Apprentice(){
         return $this->hasMany('App\Models\Apprentice');
     }
-    public function Message(){
-        return $this->hasMany('App\Models\Message');
+    public function Followup(){
+        return $this->hasMany('App\Models\Followup');
+    }
+    public function Log(){
+        return $this->hasMany('App\Models\Log');
     }
 
-    protected $fillable = ['number_of_monitoring_hours', 'month', 'number_of_trainees_assigned','Network_Knowledge'];
+    protected $fillable = ['number_of_monitoring_hours', 'month', 'number_of_trainees_assigned','network_knowledge', 'id_user_register'];
 
     protected $allowIncluded = [];
-    protected $allowFilter = ['id', 'number_of_monitoring_hours', 'month', 'number_of_trainees_assigned','Network_Knowledge'];
-    protected $allowSort = ['id', 'number_of_monitoring_hours', 'month', 'number_of_trainees_assigned','Network_Knowledge'];
+    protected $allowFilter = ['id', 'number_of_monitoring_hours', 'month', 'number_of_trainees_assigned','network_knowledge', 'id_user_register'];
+    protected $allowSort = ['id', 'number_of_monitoring_hours', 'month', 'number_of_trainees_assigned','network_knowledge', 'id_user_register'];
 
     public function scopeIncluded(Builder $query)
     {

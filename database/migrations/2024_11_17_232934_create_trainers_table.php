@@ -11,9 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('knowledge_networks', function (Blueprint $table) {
+        Schema::create('trainers', function (Blueprint $table) {
             $table->id();
-            $table->string("name");
+            $table->integer('number_of_monitoring_hours');
+            $table->date('month');
+            $table->integer('number_of_trainees_assigned');
+            $table->string('network_knowledge');
+            $table->foreignId('id_user_register')->references('id')->on('user_registers');
+
             $table->timestamps();
         });
     }
@@ -23,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('knowledge_networks');
+        Schema::dropIfExists('trainers');
     }
 };

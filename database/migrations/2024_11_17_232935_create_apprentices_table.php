@@ -15,10 +15,10 @@ return new class extends Migration
             $table->id();
             $table->string('academic_level');
             $table->string('program');
-            $table->string('ficha');
-            $table->foreignId('id_company')->references('id')->on('companies')->onDelete('cascade');
-            $table->foreignId('id_contract')->references('id')->on('contracts')->onDelete('cascade');
-            $table->foreignId('id_trainer')->references('id')->on('trainers')->onDelete('cascade');
+            $table->integer('ficha');
+            $table->foreignId('id_user_register')->references('id')->on('user_registers');
+            $table->foreignId('id_contract')->references('id')->on('contracts');
+            $table->foreignId('id_trainer')->references('id')->on('trainers');
             $table->timestamps();
         });
     }

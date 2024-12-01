@@ -11,12 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('visits', function (Blueprint $table) {
+        Schema::create('followups', function (Blueprint $table) {
             $table->id();
             $table->string('type_of_agreement');
             $table->date('date');
+            $table->string('name_of_immediate_boss');
+            $table->string('email');
+            $table->string('telephone');
             $table->string('observation');
-            $table->foreignId('user_register_id')->references('id')->on('user_registers')->onDelete('cascade');
+            $table->foreignId('id_trainer')->references('id')->on('trainers')->onDelete('cascade');
 
             $table->timestamps();
         });

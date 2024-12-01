@@ -9,20 +9,25 @@ use Illuminate\Database\Eloquent\Builder;
 class notification extends Model
 {
     use HasFactory;
-    public function Notification(){
-        return $this->hasMany('App\Models\Notification');
+    public function User_register(){
+        return $this->belongsTo('App\Models\User_register');
 
     }
 
 
     protected $fillable = [
-        'fecha_envio',
-        'contenido',
+        'shipping_date',
+        'content', 
+        'id_user_register'
     ];
 
-    protected $allowIncluded = [];
-    protected $allowFilter = ['id', 'fecha_envio', 'contenido'];
-    protected $allowSort = ['id', 'fecha_envio', 'contenido'];
+    protected $allowIncluded = ['User_register'];
+    protected $allowFilter = ['id','shipping_date',
+        'content', 
+        'id_user_register'];
+    protected $allowSort = ['id','shipping_date',
+        'content', 
+        'id_user_register'];
 
     public function scopeIncluded(Builder $query)
     {

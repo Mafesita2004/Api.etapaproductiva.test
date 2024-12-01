@@ -15,6 +15,12 @@ return new class extends Migration
     {
         Schema::create('logs', function (Blueprint $table) {
             $table->id();
+            $table->integer('number_log');
+            $table->string('description');
+            $table->date('date');
+            $table->string('observation');
+            $table->foreignId('id_trainer')->references('id')->on('trainers')->onDelete('cascade');
+            $table->foreignId('id_apprentice')->references('id')->on('apprentices')->onDelete('cascade');
             $table->timestamps();
         });
 

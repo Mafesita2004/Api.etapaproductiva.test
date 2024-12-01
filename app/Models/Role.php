@@ -17,7 +17,7 @@ class Role extends Model
     protected $allowSort = ['id', 'role_type'];
     
     public function User_register(){
-        return $this->hasMany('App\Models\User_register');
+        return $this->hasOne('App\Models\User_register');
 
 }
 

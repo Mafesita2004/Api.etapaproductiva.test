@@ -15,6 +15,7 @@ class DiaryController extends Controller
         // Recupera agendas, aplicando los scopes incluidos y de ordenamiento
         $diaries = Diary::included()->sort()->get();
         return response()->json($diaries);
+
     }
 
     /**

@@ -18,6 +18,11 @@ class company extends Model // Cambié 'company' a 'Company'
 
     protected $allowSort = ['id', 'nit', 'name', 'email', 'telephone', 'address'];
 
+    public function Contract()
+    {
+        return $this->hasOne('App\Models\Contract');
+    }
+
     public function scopeIncluded(Builder $query)
     {
         if (empty($this->allowIncluded) || empty(request('included'))) {

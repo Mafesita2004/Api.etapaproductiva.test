@@ -8,43 +8,37 @@ use Illuminate\Database\Eloquent\Builder;
 
 class Followup extends Model
 {
-    public function User_Register(){
-        return $this->hasOne('App\Models\User_register');
+    public function Trainer(){
+        return $this->belongsTo('App\Models\Trainer');
     }
     use HasFactory;
     protected $fillable = [
-        'progress_evaluation',
-        'activities_carriedout',
-        'start_date',
-        'end_date',
-        'practical_stage',
-        'log',
-        'agreement_report', // Corrigiendo el nombre del campo
+        'type_of_agreement',
+        'date',
+        'name_of_immediate_boss',
+        'email',
+        'telephone',
+        'observation',
+        'id_trainer' // Corrigiendo el nombre del campo
     ];
 
-    protected $allowIncluded = [];
+    protected $allowIncluded = ['trainer'];
 
-    protected $allowFilter = [
-        'id',
-        'progress_evaluation',
-        'activities_carriedout',
-        'start_date',
-        'end_date',
-        'practical_stage',
-        'log',
-        'agreement_report'
-    ];
+    protected $allowFilter = ['id',  'type_of_agreement',
+    'date',
+    'name_of_immediate_boss',
+    'email',
+    'telephone',
+    'observation',
+    'id_trainer'];
 
-    protected $allowSort = [
-        'id',
-        'progress_evaluation',
-        'activities_carriedout',
-        'start_date',
-        'end_date',
-        'practical_stage',
-        'log',
-        'agreement_report'
-    ];
+    protected $allowSort = ['id', 'type_of_agreement',
+    'date',
+    'name_of_immediate_boss',
+    'email',
+    'telephone',
+    'observation',
+    'id_trainer'];
 
     public function scopeIncluded(Builder $query)
     {
@@ -102,16 +96,5 @@ class Followup extends Model
             }
         }
     }
-
-    public function scopeGetOrPaginate(Builder $query) {
-        if (request('perPage')) {
-            $perPage = intval(request('perPage'));
-
-            if ($perPage) {
-                return $query->paginate($perPage);
-            }
-        }
-        return $query->get();
-    }
-
 }
+
