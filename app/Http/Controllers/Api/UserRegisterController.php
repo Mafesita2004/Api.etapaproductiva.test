@@ -42,8 +42,7 @@ class UserRegisterController extends Controller
     public function index()
     {
         // Recupera todos los registros de usuario
-        $userRegisters = User_register::all();
-
+        $userRegisters = User_register::with('Role')->get();
         return response()->json($userRegisters);
     }
 
@@ -55,23 +54,20 @@ class UserRegisterController extends Controller
      */
     public function store(Request $request)
     {
-        // Validación de los datos de entrada
         $request->validate([
             'identificacion' => 'required|integer',
             'name' => 'required|string|max:255',
             'last_name' => 'required|string|max:255',
+            'telephone' => 'required|integer',
             'email' => 'required|email|max:255|unique:user_registers',
-            'SENA_account' => 'required|email|max:255|unique:user_registers',
+            'address' => 'required|string|max:255',
             'department' => 'required|string|max:255',
             'municipality' => 'required|string|max:255',
-            'mode' => 'required|string|max:255',
             'id_role' => 'required|exists:roles,id',
         ]);
 
-        // Creación del nuevo registro de usuario
         $userRegister = User_register::create($request->all());
-
-        return response()->json($userRegister, 201); // Respuesta con código 201
+        return response()->json($userRegister, status: 201); 
     }
 
     /**
@@ -104,7 +100,7 @@ class UserRegisterController extends Controller
             'last_name' => 'required|string|max:255',
             'telephone' => 'required|integer',
             'email' => 'required|email|max:255|unique:user_registers',
-            'adress' => 'required|string|max:255',
+            'address' => 'required|string|max:255',
             'department' => 'required|string|max:255',
             'municipality' => 'required|string|max:255',
             'id_role' => 'required|exists:roles,id',

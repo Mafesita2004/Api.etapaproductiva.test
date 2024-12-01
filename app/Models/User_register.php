@@ -18,10 +18,11 @@ class User_register extends Model
     // Relación con la tabla roles
     public function Role()
     {
-        return $this->belongsTo('App\Models\Role');
+        return $this->belongsTo(Role::class, 'id_role');
     }
+
     public function Apprentice(){
-        return $this->hasOne('App\Models\Apprentice');
+        return $this->hasMany('App\Models\Apprentice');
     }
     public function Message(){
         return $this->hasMany('App\Models\Message');
@@ -35,15 +36,18 @@ class User_register extends Model
     {
         $this->attributes['password'] = bcrypt($value);
     }
-    protected $fillable = [ 'identificacion',
-    'name',
-    'last_name',
-    'telephone',
-    'email',
-    'adress',
-    'department',
-    'municipality',
-    'id_role'];
+    // protected $fillable =
+    //  [ 'identificacion',
+    // 'name',
+    // 'last_name',
+    // 'telephone',
+    // 'email',
+    // 'adress',
+    // 'department',
+    // 'municipality',
+    // 'id_role'];
+
+    protected  $guarded = [];
 
     protected $allowIncluded = ['role'];
     protected $allowFilter = ['id', 'identificacion',
