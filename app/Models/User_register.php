@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 
 class User_register extends Model
@@ -12,35 +13,124 @@ class User_register extends Model
     // Opcionalmente, define la tabla si no sigue la convención de pluralización
     protected $table = 'user_registers';
 
-    // Campos que se pueden asignar masivamente
-    protected $fillable = [
-        'identificacion',
-        'name',
-        'last_name',
-        'email',
-        'SENA_account',
-        'department',
-        'municipality',
-        'mode',
-        'id_role',
-        'id_contract',
-        'id_followup',
-        'id_company',
-        'id_trainer',
-    ];
+
 
     // Relación con la tabla roles
-    public function role()
+    public function Role()
     {
-        return $this->belongsTo(Role::class, 'id_role');
+        return $this->belongsTo('App\Models\Role');
     }
-    
-
-
+    public function Apprentice(){
+        return $this->hasOne('App\Models\Apprentice');
+    }
+    public function Message(){
+        return $this->hasMany('App\Models\Message');
+    }
+    public function Notification(){
+        return $this->hasMany('App\Models\Notification');
+    }
 
     // Encriptar la contraseña automáticamente al crear o actualizar
     public function setPasswordAttribute($value)
     {
         $this->attributes['password'] = bcrypt($value);
+    }
+    protected $fillable = [ 'identificacion',
+    'name',
+    'last_name',
+    'telephone',
+    'email',
+    'adress',
+    'department',
+    'municipality',
+    'id_role'];
+
+    protected $allowIncluded = ['role'];
+    protected $allowFilter = ['id', 'identificacion',
+    'name',
+    'last_name',
+    'telephone',
+    'email',
+    'adress',
+    'department',
+    'municipality',
+    'id_role'];
+    protected $allowSort = ['id','identificacion',
+    'name',
+    'last_name',
+    'telephone',
+    'email',
+    'adress',
+    'department',
+    'municipality',
+    'id_role'];
+
+    public function scopeIncluded(Builder $query)
+    {
+        if (empty($this->allowIncluded) || empty(request('included'))) {
+            return;
+        }
+
+        $relations = explode(',', request('included'));
+        $allowIncluded = collect($this->allowIncluded);
+
+        foreach ($relations as $key => $relationship) {
+            if (!$allowIncluded->contains($relationship)) {
+                unset($relations[$key]);
+            }
+        }
+
+        $query->with($relations);
+    }
+
+    public function scopeFilter(Builder $query)
+    {
+        if (empty($this->allowFilter) || empty(request('filter'))) {
+            return;
+        }
+
+        $filters = request('filter');
+        $allowFilter = collect($this->allowFilter);
+
+        foreach ($filters as $filter => $value) {
+            if ($allowFilter->contains($filter)) {
+                $query->where($filter, 'LIKE', '%' . $value . '%');
+            }
+        }
+    }
+
+    public function scopeSort(Builder $query)
+    {
+        if (empty($this->allowSort) || empty(request('sort'))) {
+            return;
+        }
+
+        $sortFields = explode(',', request('sort'));
+        $allowSort = collect($this->allowSort);
+
+        foreach ($sortFields as $sortField) {
+            $direction = 'asc';
+
+            if (substr($sortField, 0, 1) === '-') {
+                $direction = 'desc';
+                $sortField = substr($sortField, 1);
+            }
+
+            if ($allowSort->contains($sortField)) {
+                $query->orderBy($sortField, $direction);
+            }
+        }
+    }
+
+    public function scopeGetOrPaginate(Builder $query)
+    {
+        if (request('perPage')) {
+            $perPage = intval(request('perPage'));
+
+            if ($perPage) {
+                return $query->paginate($perPage);
+            }
+        }
+        return $query->get();
     }
 }

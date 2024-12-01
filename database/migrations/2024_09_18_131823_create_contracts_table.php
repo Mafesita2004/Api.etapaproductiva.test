@@ -15,8 +15,8 @@ return new class extends Migration
             $table->id();
             $table->integer("code");
             $table->string("type");
-            $table->date("date_start");
-            $table->date("date_end");
+            $table->date("start_date");
+            $table->date("end_date");
             $table->foreignId('id_company')->constrained('companies')->onDelete('cascade'); // Asegúrate de que 'companies' es el nombre correcto
             $table->timestamps();
         });

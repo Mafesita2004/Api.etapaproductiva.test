@@ -9,18 +9,12 @@ use Illuminate\Database\Eloquent\Builder;
 class Message extends Model
 {
     use HasFactory;
-    protected $fillable = ['mensaje', 'descripcion'];
-    protected $allowIncluded = ['Role', 'Apprentice', 'Trainer'];
-    protected $allowFilter = ['id', 'mensaje', 'descripcion '];
-    protected $allowSort = ['id', 'mensaje', 'descripcion '];
-    public function Role(){
-        return $this->belongsTo('App\Models\Role');
-    }
-    public function Apprentice(){
-        return $this->belongsTo('App\Models\Apprentice');
-    }
-    public function Trainer(){
-        return $this->belongsTo('App\Models\Trainer');
+    protected $fillable = ['message', 'description','id_user_register'];
+    protected $allowIncluded = ['User_Register'];
+    protected $allowFilter = ['id', 'message', 'description','id_user_register'];
+    protected $allowSort = ['id', 'message', 'description','id_user_register'];
+    public function User_register(){
+        return $this->belongsTo('App\Models\User_register');
     }
     public function scopeIncluded(Builder $query)
     {

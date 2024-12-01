@@ -16,7 +16,7 @@ class RoleController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'role_type' => 'required|max:255',
+            'role_type' => 'required|string|max:255',
         ]);
 
         $role = Role::create($request->all());
@@ -32,7 +32,7 @@ class RoleController extends Controller
     public function update(Request $request, Role $role)
     {
         $request->validate([
-            'role_type' => 'required|max:255',
+            'role_type' => 'required|string|max:255',
         ]);
 
         $role->update($request->all());

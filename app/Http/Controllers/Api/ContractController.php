@@ -36,10 +36,10 @@ class ContractController extends Controller
     {
         // Validación de los datos de entrada
         $request->validate([
-            'codigo' => 'required|integer',
-            'tipo' => 'required|string|max:255',
-            'fecha_inicio' => 'required|date',
-            'fecha_fin' => 'required|date',
+            'code' => 'required|integer',
+            'type' => 'required|string|max:255',
+            'start_date' => 'required|date',
+            'end_date' => 'required|date',
             'id_company' => 'required|exists:companies,id',
             
         ]);
@@ -75,10 +75,10 @@ class ContractController extends Controller
     {
         // Validación de los datos de entrada
         $request->validate([
-            'codigo' => 'required|integer',
-            'tipo' => 'required|string|max:255',
-            'fecha_inicio' => 'required|date',
-            'fecha_fin' => 'required|date',
+            'code' => 'required|integer',
+            'type' => 'required|string|max:255',
+            'start_date' => 'required|date',
+            'end_date' => 'required|date',
             'id_company' => 'required|exists:companies,id',
         ]);
 

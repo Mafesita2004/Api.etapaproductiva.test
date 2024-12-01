@@ -66,10 +66,6 @@ class UserRegisterController extends Controller
             'municipality' => 'required|string|max:255',
             'mode' => 'required|string|max:255',
             'id_role' => 'required|exists:roles,id',
-            'id_contract' => 'required|exists:contracts,id',
-            'id_followup' => 'required|exists:followups,id',
-            'id_company' => 'required|exists:companies,id',
-            'id_trainer' => 'required|exists:companies,id',
         ]);
 
         // Creación del nuevo registro de usuario
@@ -106,15 +102,12 @@ class UserRegisterController extends Controller
             'identificacion' => 'required|integer',
             'name' => 'required|string|max:255',
             'last_name' => 'required|string|max:255',
+            'telephone' => 'required|integer',
             'email' => 'required|email|max:255|unique:user_registers',
-            'SENA_account' => 'required|email|max:255|unique:user_registers',
+            'adress' => 'required|string|max:255',
             'department' => 'required|string|max:255',
             'municipality' => 'required|string|max:255',
-            'mode' => 'required|string|max:255',
             'id_role' => 'required|exists:roles,id',
-            'id_contract' => 'required|exists:contracts,id',
-            'id_followup' => 'required|exists:followups,id',
-            'id_company' => 'required|exists:companies,id',
         ]);
 
         // Actualización del registro de usuario

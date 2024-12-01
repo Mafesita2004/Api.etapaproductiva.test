@@ -24,6 +24,7 @@ class CompanyController extends Controller
             'nit' => 'required|max:255',
             'name' => 'required|max:255',
             'email' => 'required|max:255',
+            'social_reason' => 'required|max:255',
             'telephone' => 'required|max:255',
             'address' => 'required|max:255',
         ]);
@@ -41,9 +42,10 @@ class CompanyController extends Controller
     public function update(Request $request, Company $company)
     {
         $request->validate([
-            'nit' => 'required|max:255',
+           'nit' => 'required|max:255',
             'name' => 'required|max:255',
             'email' => 'required|max:255',
+            'social_reason' => 'required|max:255',
             'telephone' => 'required|max:255',
             'address' => 'required|max:255',
         ]);

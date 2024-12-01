@@ -9,37 +9,26 @@ use Illuminate\Database\Eloquent\Builder;
 class Apprentice extends Model
 {
     use HasFactory;
+    public function User_register(){
+        return $this->belongsTo('App\Models\User_register');
+    }
     public function Contract(){
-        return $this->belongsTo(Contract::class, 'id_contract');
+        return $this->belongsTo('App\Models\Contract');
     }
     public function Trainer(){
-        return $this->belongsTo(Trainer::class, 'id_trainer');
+        return $this->belongsTo('App\Models\Trainer');
     }
-     // Relación con la tabla contracts
-
-     // Relación con la tabla followups
-     public function followup()
-     {
-         return $this->belongsTo(Followup::class, 'id_followup');
-     }
-
-     // Relación con la tabla companies
-     public function company()
-     {
-         return $this->belongsTo(Company::class, 'id_company');
-     }
-
-    public function Message(){
-        return $this->hasMany('App\Models\Message');
+    public function Log(){
+        return $this->hasMany('App\Models\Log');
     }
 
-    protected $fillable = ['id','program', 'ficha'];
+    protected $fillable = ['id', 'academic_level', 'program', 'ficha', 'id_user_register', 'id_contract','id_trainer'];
 
-    protected $allowIncluded = [];
+    protected $allowIncluded = ['user_register', 'contract', 'trainer'];
 
-    protected $allowFilter = ['id','program', 'ficha'];
+    protected $allowFilter = ['id', 'academic_level', 'program', 'ficha', 'id_user_register', 'id_contract','id_trainer'];
 
-    protected $allowSort = ['id','program', 'ficha'];
+    protected $allowSort = ['id', 'academic_level', 'program', 'ficha', 'id_user_register', 'id_contract','id_trainer'];
 
     public function scopeIncluded(Builder $query)
     {
