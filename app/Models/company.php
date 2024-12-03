@@ -10,8 +10,8 @@ class company extends Model // Cambié 'company' a 'Company'
 {
     use HasFactory;
 
-    protected $fillable = ['nit', 'name', 'email', 'telephone', 'address'];
-
+    protected $fillable = ['nit', 'name', 'email','social_reason', 'telephone', 'address'];
+    
     protected $allowIncluded = [];
 
     protected $allowFilter = ['id', 'nit', 'name', 'email', 'telephone', 'address'];

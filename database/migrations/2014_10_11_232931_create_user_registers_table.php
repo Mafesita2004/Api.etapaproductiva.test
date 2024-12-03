@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
@@ -24,6 +25,18 @@ return new class extends Migration
             $table->foreignId('id_role')->references('id')->on('roles')->onDelete('cascade');
             $table->timestamps();
         });
+
+        DB::table('user_registers')->insert([
+            'identificacion'=> 143242112,
+            'name'=> 'Juan',
+            'last_name'=> 'Perez',
+            'telephone'=> 1234,
+            'email'=> 'klkqcd@kndl',
+            'address'=> 'HOla Mundo',
+            'department'=> 'Cauca',
+            'municipality'=> 'Popayán',
+            'id_role'=> 1,
+        ]);
     }
 
     /**

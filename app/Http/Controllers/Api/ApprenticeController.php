@@ -33,9 +33,9 @@ class ApprenticeController extends Controller
             'academic_level' => 'required|max:255',
             'program' => 'required|max:255',
             'ficha' => 'required|max:255',
-            'user_register_id' => 'required|exists:user_registers,id',
-            'contract_id' => 'required|exists:contracts,id',
-            'trainer_id' => 'required|exists:trainers,id', // Cambiado a followup_id
+            'id_user_register' => 'required|exists:user_registers,id',
+            'id_contract' => 'required|exists:contracts,id',
+            'id_trainer' => 'required|exists:trainers,id', // Cambiado a followup_id
         ]);
 
         $apprentice = Apprentice::create($request->all());
@@ -69,9 +69,9 @@ class ApprenticeController extends Controller
             'academic_level' => 'required|max:255',
             'program' => 'required|max:255',
             'ficha' => 'required|max:255',
-            'user_register_id' => 'required|exists:user_registers,id',
-            'contract_id' => 'required|exists:contracts,id',
-            'trainer_id' => 'required|exists:trainers,id', // Cambiado a followup_id
+            'id_user_register' => 'required|exists:user_registers,id',
+            'id_contract' => 'required|exists:contracts,id',
+            'id_trainer' => 'required|exists:trainers,id', // Cambiado a followup_id
         ]);
 
         // Actualización de agenda

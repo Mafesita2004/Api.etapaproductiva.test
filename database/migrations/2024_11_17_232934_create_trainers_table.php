@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
@@ -21,6 +22,13 @@ return new class extends Migration
 
             $table->timestamps();
         });
+        DB::table('trainers')->insert([
+            'number_of_monitoring_hours'=> 12,
+            'month'=> '2024/12/03',
+            'number_of_trainees_assigned'=> 1,
+            'network_knowledge'=> 'network_knowledge',
+            'id_user_register'=> 1,
+        ]);
     }
 
     /**

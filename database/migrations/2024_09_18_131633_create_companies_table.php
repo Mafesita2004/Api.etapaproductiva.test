@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
@@ -21,6 +22,14 @@ return new class extends Migration
             $table->string('address');
             $table->timestamps();
         });
+        DB::table('companies')->insert([
+            'nit'=> '78312',
+            'name'=> 'CEO',
+            'email'=> 'ceo@gmail.com',
+            'address'=> 'POpayan',
+            'social_reason'=> 'hvbjhb',
+            'telephone'=> 12312,
+        ]);
     }
 
     /**

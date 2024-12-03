@@ -10,6 +10,7 @@ use App\Http\Controllers\Api\RoleController;
 use App\Http\Controllers\Api\LogController;
 use App\Http\Controllers\Api\TrainerController;
 use App\Http\Controllers\Api\UserRegisterController;
+use App\Http\Controllers\Api\DepartmentController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -111,4 +112,4 @@ Route::get('contracts/{contract}', [ContractController::class,'show'])->name('ap
 Route::put('contracts/{contract}', [ContractController::class,'update'])->name('api.contract.update');
 Route::delete('contracts/{contract}', [ContractController::class,'destroy'])->name('api.contract.delete');
 
-
+Route::get('/departamentos', [DepartmentController::class, 'index']);
