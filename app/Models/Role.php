@@ -8,18 +8,21 @@ use Illuminate\Database\Eloquent\Model;
 class Role extends Model
 {
 
+    public function User_register(){
+        return $this->hasOne('App\Models\User_register');
+
+}
+
+
     protected $fillable = ['role_type'];
 
-    protected $allowIncluded = [];
+    protected $allowIncluded = ['User_register'];
 
     protected $allowFilter = ['id', 'role_type'];
 
     protected $allowSort = ['id', 'role_type'];
     
-    public function User_register(){
-        return $this->hasOne('App\Models\User_register');
-
-}
+    
 
     public function scopeIncluded(Builder $query)
     {

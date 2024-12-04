@@ -9,13 +9,16 @@ use Illuminate\Database\Eloquent\Builder;
 class Message extends Model
 {
     use HasFactory;
-    protected $fillable = ['message', 'description','id_user_register'];
-    protected $allowIncluded = ['User_Register'];
-    protected $allowFilter = ['id', 'message', 'description','id_user_register'];
-    protected $allowSort = ['id', 'message', 'description','id_user_register'];
+
     public function User_register(){
         return $this->belongsTo('App\Models\User_register');
     }
+
+    protected $fillable = ['message', 'description','id_user_register'];
+    protected $allowIncluded = ['User_register'];
+    protected $allowFilter = ['id', 'message', 'description','id_user_register'];
+    protected $allowSort = ['id', 'message', 'description','id_user_register'];
+    
     public function scopeIncluded(Builder $query)
     {
         if (empty($this->allowIncluded) || empty(request('included'))) {

@@ -7,16 +7,18 @@ use Illuminate\Database\Eloquent\Builder;
 class Regional extends Model
 {
     //
+    public function trainingCenters ()
+    {
+        return $this->hasMany(TrainingCenter::class);
+    }
+    
     protected $fillable = ['code','name'];
 
     protected $allowIncluded = ['trainingCenters'];
 
     protected $allowFilter = ['training'];
 
-    public function trainingCenters ()
-    {
-        return $this->hasMany(TrainingCenter::class);
-    }
+   
 
     public function scopeIncluded(Builder $query)
     {

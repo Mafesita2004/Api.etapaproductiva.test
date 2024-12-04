@@ -49,7 +49,7 @@ class User_register extends Model
 
     protected  $guarded = [];
 
-    protected $allowIncluded = ['role'];
+    protected $allowIncluded = ['Role','Apprentice','Message','Notification'];
     protected $allowFilter = ['id', 'identificacion',
     'name',
     'last_name',

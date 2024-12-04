@@ -9,19 +9,20 @@ use Illuminate\Database\Eloquent\Model;
 class company extends Model // Cambié 'company' a 'Company'
 {
     use HasFactory;
+    public function Contract()
+    {
+        return $this->hasMany('App\Models\Contract');
+    }
 
     protected $fillable = ['nit', 'name', 'email','social_reason', 'telephone', 'address'];
     
-    protected $allowIncluded = [];
+    protected $allowIncluded = ['Contract'];
 
     protected $allowFilter = ['id', 'nit', 'name', 'email', 'telephone', 'address'];
 
     protected $allowSort = ['id', 'nit', 'name', 'email', 'telephone', 'address'];
 
-    public function Contract()
-    {
-        return $this->hasOne('App\Models\Contract');
-    }
+    
 
     public function scopeIncluded(Builder $query)
     {

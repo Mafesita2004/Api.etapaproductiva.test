@@ -25,7 +25,7 @@ class Trainer extends Model
 
     protected $fillable = ['number_of_monitoring_hours', 'month', 'number_of_trainees_assigned','network_knowledge', 'id_user_register'];
 
-    protected $allowIncluded = [];
+    protected $allowIncluded = ['User_Register','Apprentice','Followup','Log'];
     protected $allowFilter = ['id', 'number_of_monitoring_hours', 'month', 'number_of_trainees_assigned','network_knowledge', 'id_user_register'];
     protected $allowSort = ['id', 'number_of_monitoring_hours', 'month', 'number_of_trainees_assigned','network_knowledge', 'id_user_register'];
 

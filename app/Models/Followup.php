@@ -22,7 +22,7 @@ class Followup extends Model
         'id_trainer' // Corrigiendo el nombre del campo
     ];
 
-    protected $allowIncluded = ['trainer'];
+    protected $allowIncluded = ['Trainer'];
 
     protected $allowFilter = ['id',  'type_of_agreement',
     'date',

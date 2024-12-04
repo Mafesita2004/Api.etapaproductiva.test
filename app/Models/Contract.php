@@ -25,7 +25,7 @@ class Contract extends Model
         'end_date',
         'id_company'
     ];
-    protected $allowIncluded = ['company'];
+    protected $allowIncluded = ['Apprentice','Company'];
 
     protected $allowFilter = ['id', 'code', 'type', 'start_date', 'end_date', 'id_company']; 
 

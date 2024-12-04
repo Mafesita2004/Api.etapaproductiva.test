@@ -24,7 +24,7 @@ class Log extends Model
         'id_apprentice'
     ];
 
-    protected $allowIncluded = ['trainer','apprentice'];
+    protected $allowIncluded = ['Trainer','Apprentice'];
 
     protected $allowFilter = ['id', 'number_log',
         'description',

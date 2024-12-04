@@ -24,7 +24,7 @@ class Apprentice extends Model
 
     protected $fillable = ['id', 'academic_level', 'program', 'ficha', 'id_user_register', 'id_contract','id_trainer'];
 
-    protected $allowIncluded = ['user_register', 'contract', 'trainer'];
+    protected $allowIncluded = ['User_register', 'Contract', 'Trainer','Log'];
 
     protected $allowFilter = ['id', 'academic_level', 'program', 'ficha', 'id_user_register', 'id_contract','id_trainer'];
 
