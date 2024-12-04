@@ -2,8 +2,6 @@
 
 namespace Database\Seeders;
 
-use App\Models\Day;
-use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -16,16 +14,13 @@ class DatabaseSeeder extends Seeder
     {
         // User::factory(10)->create();
 
-        $this->call([
-            // RolesSeeder::class,
-            // DocumentTypeSeeder::class,
-            // RegionalSeeder::class,
-            // TrainingCenterSeeder::class,
-            Departmentseeder::class,
-            MunicipalitySeeder::class,
-            // DaySeeder::class,
-        ]);
-        // $this->call(Departmentseeder::class);
-        // $this->call(MunicipalitySeeder::class);
+        // $this->call([
+
+        //     Departmentseeder::class,
+        //     MunicipalitySeeder::class,
+
+        // ]);
+        $this->call(DepartmentSeeder::class);
+        $this->call(MunicipalitySeeder::class);
     }
 }

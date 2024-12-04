@@ -1,4 +1,4 @@
-            INSERT INTO `municipalities` (`id`, `name`,`departament_id`) VALUES
+            INSERT INTO `municipalities` (`id`, `name`,`department_id`) VALUES
             (1,'Abriaquí' ,5),
             (2,'Acacías' ,50),
             (3,'Acandí' ,27),

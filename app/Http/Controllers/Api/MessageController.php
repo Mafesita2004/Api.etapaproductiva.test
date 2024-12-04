@@ -36,14 +36,11 @@ class MessageController extends Controller
     {
         // Validación de los datos de entrada
         $request->validate([
-            'nit' => 'required|string|max:255',
-            'name' => 'required|string|max:255',
-            'email' => 'required|string|max:255',
-            'social_reason' => 'required|string|max:255',
-            'telephone' => 'required|string|max:255',
-        ]);
-        
+            'message' => 'required|string|max:255',
+            'description' => 'required|string|max:255',
+            'id_user_register' => 'required|string|max:255',
 
+        ]);
         // Creación del nuevo contrato
         $message = Message::create($request->all());
 
@@ -75,9 +72,10 @@ class MessageController extends Controller
     {
         // Validación de los datos de entrada
         $request->validate([
-            'messaage' => 'required|string|max:255',
+            'message' => 'required|string|max:255',
             'description' => 'required|string|max:255',
-            'id_user_register' => 'required|exists:user_registers,id',
+            'id_user_register' => 'required|string|max:255',
+
         ]);
 
         // Actualización del contrato

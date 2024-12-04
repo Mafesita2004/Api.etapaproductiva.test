@@ -40,7 +40,7 @@ class TrainerController extends Controller
             'month' => 'required|date',
             'number_of_trainees_assigned' => 'required|integer',
             'network_knowledge' => 'required|string|max:255',
-            'id_user_regiser' => 'required|exists:user_registers,id',
+            'id_user_register' => 'required|exists:user_registers,id',
             
         ]);
 
@@ -75,11 +75,12 @@ class TrainerController extends Controller
     {
         // Validación de los datos de entrada
         $request->validate([
-           'number_of_monitoring_hours' => 'required|integer',
+            'number_of_monitoring_hours' => 'required|integer',
             'month' => 'required|date',
             'number_of_trainees_assigned' => 'required|integer',
             'network_knowledge' => 'required|string|max:255',
-            'id_user_regiser' => 'required|exists:user_registers,id',
+            'id_user_register' => 'required|exists:user_registers,id',
+            
         ]);
 
         // Actualización del contrato
@@ -99,6 +100,6 @@ class TrainerController extends Controller
         // Elimina el contrato
         $trainer->delete();
 
-        return response()->json(null, 204); // Respuesta vacía con código 204
+        return response()->json(null, 204); 
     }
 }
