@@ -50,23 +50,23 @@ class User_register extends Model
     protected  $guarded = [];
 
     protected $allowIncluded = ['Role','Apprentice','Message','Notification'];
-    protected $allowFilter = ['id', 'identificacion',
+    protected $allowFilter = ['id', 'identification',
     'name',
     'last_name',
     'telephone',
     'email',
-    'adress',
+    'address',
     'department',
-    'municipality',
+    'municipality', 'password',
     'id_role'];
-    protected $allowSort = ['id','identificacion',
+    protected $allowSort = ['id','identification',
     'name',
     'last_name',
     'telephone',
     'email',
-    'adress',
+    'address',
     'department',
-    'municipality',
+    'municipality', 'password',
     'id_role'];
 
     public function scopeIncluded(Builder $query)

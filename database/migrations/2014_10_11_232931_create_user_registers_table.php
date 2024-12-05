@@ -14,7 +14,7 @@ return new class extends Migration
     {
         Schema::create('user_registers', function (Blueprint $table) {
             $table->id();
-            $table->integer('identificacion');
+            $table->integer('identification');
             $table->string('name');
             $table->string('last_name');
             $table->integer('telephone');
@@ -22,12 +22,14 @@ return new class extends Migration
             $table->string('address'); 
             $table->string('department');
             $table->string('municipality');
+            $table->string('password');
+            $table->rememberToken();
             $table->foreignId('id_role')->references('id')->on('roles')->onDelete('cascade');
             $table->timestamps();
         });
 
         DB::table('user_registers')->insert([
-            'identificacion'=> 143242112,
+            'identification'=> 143242112,
             'name'=> 'Juan',
             'last_name'=> 'Perez',
             'telephone'=> 1234,
@@ -35,6 +37,7 @@ return new class extends Migration
             'address'=> 'HOla Mundo',
             'department'=> 'Cauca',
             'municipality'=> 'Popayán',
+            'password'=> '12345678',
             'id_role'=> 1,
         ]);
     }

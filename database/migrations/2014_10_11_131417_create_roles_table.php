@@ -20,10 +20,10 @@ return new class extends Migration
 
         // Inserta registros iniciales en la tabla 'roles'
         DB::table('roles')->insert([
-            ['role_type' => 'SuperAdmin'],
-            ['role_type' => 'Administrador'],
-            ['role_type' => 'Instructor'],
-            ['role_type' => 'Aprendiz']
+            ['role_type' => 'superadmin'],
+            ['role_type' => 'administrator'],
+            ['role_type' => 'trainer'],
+            ['role_type' => 'apprentice']
         ]);
     }
 

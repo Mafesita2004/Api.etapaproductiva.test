@@ -55,7 +55,7 @@ class UserRegisterController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'identificacion' => 'required|integer',
+            'identification' => 'required|integer',
             'name' => 'required|string|max:255',
             'last_name' => 'required|string|max:255',
             'telephone' => 'required|integer',
@@ -63,6 +63,7 @@ class UserRegisterController extends Controller
             'address' => 'required|string|max:255',
             'department' => 'required|string|max:255',
             'municipality' => 'required|string|max:255',
+            'password' => 'required|string|max:255',
             'id_role' => 'required|exists:roles,id',
         ]);
 
@@ -95,7 +96,7 @@ class UserRegisterController extends Controller
     {
         // Validación de los datos de entrada
         $request->validate([
-            'identificacion' => 'required|integer',
+            'identification' => 'required|integer',
             'name' => 'required|string|max:255',
             'last_name' => 'required|string|max:255',
             'telephone' => 'required|integer',
@@ -103,6 +104,7 @@ class UserRegisterController extends Controller
             'address' => 'required|string|max:255',
             'department' => 'required|string|max:255',
             'municipality' => 'required|string|max:255',
+            'password' => 'required|string|max:255',
             'id_role' => 'required|exists:roles,id',
         ]);
 
