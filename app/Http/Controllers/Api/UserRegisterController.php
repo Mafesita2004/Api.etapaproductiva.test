@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Http\Controllers\Controller;
 use App\Models\User_register;
 use Illuminate\Http\Request;
 
@@ -126,5 +127,16 @@ class UserRegisterController extends Controller
         $user_register->delete();
 
         return response()->json(null, 204); // Respuesta vacía con código 204
+    }
+      public function getUserRegistersByRoles()
+    {
+        $users = User_register::whereIn('id_role', [1, 2])->with('Role')->get();
+        return response()->json($users);
+    }
+
+    public function getUserRegistersByRolesInstructor()
+    {
+        $users = User_register::whereIn('id_role', [3, 4])->with('Role')->get();
+        return response()->json($users);
     }
 }
