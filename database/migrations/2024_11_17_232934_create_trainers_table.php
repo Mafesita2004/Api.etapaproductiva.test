@@ -18,17 +18,12 @@ return new class extends Migration
             $table->date('month');
             $table->integer('number_of_trainees_assigned');
             $table->string('network_knowledge');
+            $table->date('start_date');
+            $table->date('end_date');
             $table->foreignId('id_user_register')->references('id')->on('user_registers');
 
             $table->timestamps();
         });
-        DB::table('trainers')->insert([
-            'number_of_monitoring_hours'=> 12,
-            'month'=> '2024/12/03',
-            'number_of_trainees_assigned'=> 1,
-            'network_knowledge'=> 'network_knowledge',
-            'id_user_register'=> 1,
-        ]);
     }
 
     /**

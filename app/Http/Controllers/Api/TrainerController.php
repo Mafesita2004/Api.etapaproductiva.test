@@ -40,6 +40,8 @@ class TrainerController extends Controller
             'month' => 'required|date',
             'number_of_trainees_assigned' => 'required|integer',
             'network_knowledge' => 'required|string|max:255',
+            'start_date' => 'required|date',
+            'end_date' => 'required|date',
             'id_user_register' => 'required|exists:user_registers,id',
             
         ]);
@@ -79,6 +81,8 @@ class TrainerController extends Controller
             'month' => 'required|date',
             'number_of_trainees_assigned' => 'required|integer',
             'network_knowledge' => 'required|string|max:255',
+            'start_date' => 'required|date',
+            'end_date' => 'required|date',
             'id_user_register' => 'required|exists:user_registers,id',
             
         ]);
