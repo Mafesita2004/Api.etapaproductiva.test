@@ -128,4 +128,15 @@ class UserRegisterController extends Controller
 
         return response()->json(null, 204); // Respuesta vacía con código 204
     }
+      public function getUserRegistersByRoles()
+    {
+        $users = User_register::whereIn('id_role', [1, 2])->with('Role')->get();
+        return response()->json($users);
+    }
+
+    public function getUserRegistersByRolesInstructor()
+    {
+        $users = User_register::whereIn('id_role', [3, 6])->with('Role')->get();
+        return response()->json($users);
+    }
 }
