@@ -113,3 +113,6 @@ Route::put('contracts/{contract}', [ContractController::class,'update'])->name('
 Route::delete('contracts/{contract}', [ContractController::class,'destroy'])->name('api.contract.delete');
 
 Route::get('/departamentos', [DepartmentController::class, 'index']);
+
+Route::get('user_by_roles', action: [UserRegisterController::class, 'getUserRegistersByRoles']);
+Route::get('user_by_roles_instructor', action: [UserRegisterController::class, 'getUserRegistersByRolesInstructor']);
